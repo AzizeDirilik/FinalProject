@@ -8,21 +8,33 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-           ProductManager productManager = new ProductManager(new EfProductDal());
+            ProductGetAll();
+            //OrderTest();
 
-            var products = productManager.GetAll();
-            if (products != null && products.Any())
+
+        }
+
+
+
+        private static void OrderTest()
+        {
+            OrderManager orderManager = new OrderManager(new EfOrderDal());
+            foreach (var order in orderManager.GetAll())
             {
-                foreach (var product in products)
+                Console.WriteLine(order.OrderDate);
+            }
+        }
+
+        private static void ProductGetAll()
+        {
+            ProductManager productManager = new ProductManager(new EfProductDal());
+            
+            
+                foreach (var product in productManager.GetProductDetails())
                 {
-                    Console.WriteLine(product.ProductName);
+                    Console.WriteLine(product.ProductName + "/" +product.CategoryName);
                 }
-            }
-            else
-            {
-                Console.WriteLine("No products found.");
-            }
-
+            
         }
     }
 }
