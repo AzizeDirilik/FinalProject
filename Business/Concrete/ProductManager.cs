@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constans;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -19,15 +21,29 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-           return _productDal.GetAll();
+            return new DataResult _productDal.GetAll();
         }
 
-        public List<ProductDetailDto> GetProductDetails()
+        public Product GetById(int productId)
+        {
+            return _productDal.Get(p => p.ProductId == productId);
+        }
+
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
             return _productDal.GetProductDetails();
+        }
+
+        IResult IProductService.Add(Product product)
+        {
+            if (product.ProductName.Length<2)
+            {
+                return new ErrorResult(Messages.ProductNameInvalid);
+            }
+            _productDal.Add(product);
+            return new Result(true, Messages.ProductAdded);
         }
     }
 }
