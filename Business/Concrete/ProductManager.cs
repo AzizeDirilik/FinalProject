@@ -23,17 +23,22 @@ namespace Business.Concrete
         }
         public IDataResult<List<Product>> GetAll()
         {
-            return new DataResult _productDal.GetAll();
+            if (DateTime.Now.Hour == 14)
+            {
+                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            }
+
+            return new SuccessDataResult<List<Product>> (_productDal.GetAll(), Messages.ProductListed);
         }
 
-        public Product GetById(int productId)
+        public IDataResult<Product> GetById(int productId)
         {
-            return _productDal.Get(p => p.ProductId == productId);
+            return  new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return _productDal.GetProductDetails();
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
 
         IResult IProductService.Add(Product product)
@@ -45,5 +50,9 @@ namespace Business.Concrete
             _productDal.Add(product);
             return new Result(true, Messages.ProductAdded);
         }
+
+
+
+       
     }
 }
