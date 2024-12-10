@@ -7,68 +7,75 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class OrdersController : ControllerBase
     {
-        ICategoryService _categoryService;
+        IOrderService _orderService;
 
-        public CategoriesController(ICategoryService categoryService)
+        public OrdersController(IOrderService orderService)
         {
-            _categoryService = categoryService;
+            _orderService = orderService;
         }
 
         [HttpGet("getall")]
+
         public IActionResult GetAll()
         {
-            var result = _categoryService.GetAll();
+            var result = _orderService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
+
         [HttpGet("getbyid")]
+
         public IActionResult GetById(int id)
         {
-            var result = _categoryService.GetById(id);
+            var result = _orderService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Category category)
+        public IActionResult Add(Order order)
         {
-            var result = _categoryService.Add(category);
+            var result = _orderService.Add(order);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-        }
 
-        [HttpPost("update")]
-        public IActionResult Update(Category category)
-        {
-            var result = _categoryService.Update(category);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Category category)
+        public IActionResult Delete(Order order)
         {
-            var result = _categoryService.Delete(category);
+            var result = _orderService.Delete(order);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
 
+        [HttpPost("update")]
+        public IActionResult Update(Order order)
+        {
+            var result = _orderService.Update(order);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+
+        }
     }
 }
