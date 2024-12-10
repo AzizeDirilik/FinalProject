@@ -19,7 +19,8 @@ namespace ConsoleUI
         private static void OrderTest()
         {
             OrderManager orderManager = new OrderManager(new EfOrderDal());
-            foreach (var order in orderManager.GetAll())
+            var result = orderManager.GetAll();
+            foreach (var order in result.Data)
             {
                 Console.WriteLine(order.OrderDate);
             }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -18,14 +19,32 @@ namespace Business.Concrete
             _orderDal = orderDal;
         }
 
-        public List<Order> GetAll()
+        public IResult Add(Order order)
         {
-            return _orderDal.GetAll();
+           _orderDal.Add(order);
+            return new SuccessResult();
         }
 
-        public Order GetById(int id)
+        public IResult Delete(Order order)
         {
-            return _orderDal.Get(c => c.OrderId == id);
+            _orderDal.Delete(order);
+            return new SuccessResult();
+        }
+
+        public IDataResult<List<Order>> GetAll()
+        {
+           return new SuccessDataResult<List<Order>>(_orderDal.GetAll()); 
+        }
+
+        public IDataResult<Order> GetById(int id)
+        {
+            return new SuccessDataResult<Order>(_orderDal.Get(o => o.OrderId == id));   
+        }
+
+        public IResult Update(Order order)
+        {
+            _orderDal.Update(order);
+            return new SuccessResult();
         }
     }
 }
