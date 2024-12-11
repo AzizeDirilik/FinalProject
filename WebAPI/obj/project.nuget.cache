@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ybT3LALJwNVq9hvyulELEV9TzDgM1lMhA1yZLwIFOJEi+8gSkc6Tt4jioTsvf1Du652saAmTPbuBaMT6QvskDQ==",
+  "dgSpecHash": "p4eOv4lxf0U4l1eC5KqCOIFpNruKC+87OkG/Gxn4pPbl98EWanrCTwMGyXS19zDrCGmQZ+/1DksIUtloUQ74lQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Azize\\source\\repos\\FinalProject\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Azize\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Azize\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Azize\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Azize\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Azize\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Azize\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Azize\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.5\\microsoft.data.sqlclient.5.1.5.nupkg.sha512",
