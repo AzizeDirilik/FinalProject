@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -23,6 +24,14 @@ namespace Business.Concrete
         public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
+        }
+
+        [ValidationAspect(typeof(ProductValidator))]
+        public IResult Add(Product product)
+        {
+            ValidationTool.Validate(new ProductValidator(), product);
+            _productDal.Add(product);
+            return new Result(true, Messages.ProductAdded);
         }
 
         public IResult Delete(Product product)
@@ -56,16 +65,6 @@ namespace Business.Concrete
             _productDal.Update(product);
             return new SuccessResult();
         }
-
-        IResult IProductService.Add(Product product)
-        {
-            ValidationTool.Validate(new ProductValidator(), product);
-            _productDal.Add(product);
-            return new Result(true,Messages.ProductAdded);
-
-        }
-
-
 
 
     }
