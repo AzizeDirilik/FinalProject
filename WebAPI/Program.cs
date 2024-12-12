@@ -21,14 +21,6 @@ namespace WebAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            //builder.Services.AddSingleton<IProductService, ProductManager>(); 
-            //builder.Services.AddSingleton<IProductDal, EfProductDal>();
-            builder.Services.AddSingleton<ICategoryService, CategoryManager>();
-            builder.Services.AddSingleton<ICategoryDal, EfCategoryDal>();
-            builder.Services.AddSingleton<ICustomerService, CustomerManager>();
-            builder.Services.AddSingleton<ICustomerDal, EfCustomerDal>();
-            builder.Services.AddSingleton<IOrderService, OrderManager>();
-            builder.Services.AddSingleton<IOrderDal, EfOrderDal>();
 
             builder.Host.UseServiceProviderFactory(services => new AutofacServiceProviderFactory())
                 .ConfigureContainer<ContainerBuilder>(builder => 
