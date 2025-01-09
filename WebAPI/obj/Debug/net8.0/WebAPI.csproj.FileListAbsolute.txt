@@ -89,3 +89,6 @@ C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Autofac.Extensions.DependencyInjection.dll
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
