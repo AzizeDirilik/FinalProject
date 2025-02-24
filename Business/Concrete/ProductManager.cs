@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -29,7 +30,8 @@ namespace Business.Concrete
             _categoryService = categoryService;
         }
 
-        [ValidationAspect(typeof(ProductValidator))]
+         [SecuredOperation("product.add,admin")]
+         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
             IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId),
@@ -78,12 +80,13 @@ namespace Business.Concrete
 
         private IResult CheckIfProductNameExists(string productName)
         {
-            var result = _productDal.GetAll(p => p.ProductName == productName).Any();
 
+            var result = _productDal.GetAll(p => p.ProductName == productName).Any();
             if (result)
             {
                 return new ErrorResult(Messages.ProductNameAlreadyExists);
             }
+
             return new SuccessResult();
         }
 
@@ -91,7 +94,7 @@ namespace Business.Concrete
         {
             var result = _productDal.GetAll(p => p.CategoryId == categoryId).Count();
 
-            if (result >= 15)
+            if (result >= 30)
             {
                 return new ErrorResult(Messages.ProductCountOfCategoryError);
             }

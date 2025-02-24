@@ -92,3 +92,15 @@ C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\FluentValidatio
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\JWT.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Common.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Configuration.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Frameworks.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.LibraryModel.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Packaging.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Protocol.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\NuGet.Versioning.dll
+C:\Users\Azize\source\repos\FinalProject\WebAPI\bin\Debug\net8.0\System.Formats.Asn1.dll
