@@ -1,5 +1,7 @@
-﻿using Castle.DynamicProxy;
-using IInterceptor = Castle.DynamicProxy.IInterceptor;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Castle.DynamicProxy;
 
 namespace Core.Utilities.Interceptors
 {
