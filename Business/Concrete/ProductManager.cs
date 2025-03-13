@@ -3,6 +3,8 @@ using Business.BusinessAspects.Autofac;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Business;
@@ -67,6 +69,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+        [PerformanceAspect(1)]
         public IDataResult<Product> GetById(int productId)
         {
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
@@ -115,6 +118,21 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.CategoryLimitExceded);
             }
             return new SuccessResult();
+        }
+
+        [TransactionScopeAspect]
+        public IResult TransactionalOperation(Product product)
+        {
+            Add(product);
+
+            if (product.UnitPrice < 10)
+            {
+                throw new Exception("Ürün fiyatı 10'dan küçük olamaz.");
+            }
+
+            Add(product);
+
+            return new SuccessResult("Ürün başarıyla eklendi.");
         }
     }
 }
