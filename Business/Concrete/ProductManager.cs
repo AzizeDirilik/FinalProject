@@ -60,7 +60,7 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour == 16)
+            if (DateTime.Now.Hour == 10)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
@@ -133,6 +133,11 @@ namespace Business.Concrete
             Add(product);
 
             return new SuccessResult("Ürün başarıyla eklendi.");
+        }
+
+        public IDataResult<List<Product>> GetByCategoryId(int categoryId)
+        {
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == categoryId));
         }
     }
 }
