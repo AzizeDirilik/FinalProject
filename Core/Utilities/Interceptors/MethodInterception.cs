@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Castle.DynamicProxy;
+﻿using Castle.DynamicProxy;
 
 namespace Core.Utilities.Interceptors
 {
+
     public abstract class MethodInterception : MethodInterceptionBaseAttribute
     {
         protected virtual void OnBefore(IInvocation invocation) { }
@@ -35,4 +33,6 @@ namespace Core.Utilities.Interceptors
             OnAfter(invocation);
         }
     }
+
+
 }

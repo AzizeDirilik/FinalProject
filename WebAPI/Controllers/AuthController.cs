@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constans;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +28,11 @@ namespace WebAPI.Controllers
             var result = _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(new
+                {
+                    message = userToLogin.Message,
+                    data = result.Data
+                });
             }
 
             return BadRequest(result.Message);
@@ -46,7 +51,12 @@ namespace WebAPI.Controllers
             var result = _authService.CreateAccessToken(registerResult.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(new
+                {
+                    message = registerResult.Message, 
+                    data = result.Data
+                });
+
             }
 
             return BadRequest(result.Message);

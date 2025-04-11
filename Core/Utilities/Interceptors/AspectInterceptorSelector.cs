@@ -1,33 +1,27 @@
 ﻿using Castle.DynamicProxy;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Core.Utilities.Interceptors
 {
 
     public class AspectInterceptorSelector : IInterceptorSelector
-{
-    public IInterceptor[] SelectInterceptors(Type type, MethodInfo method, IInterceptor[] interceptors)
     {
-        var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>(true).ToList();
-
-        // Arayüz durumunu kontrol et
-        if (type.IsInterface)
+        public IInterceptor[] SelectInterceptors(Type type, MethodInfo method, IInterceptor[] interceptors)
         {
-            type = method.DeclaringType;
-        }
-
-        // BindingFlags ile metodu al
-        var methodInfo = type.GetMethod(method.Name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, method.GetParameters().Select(p => p.ParameterType).ToArray(), null);
-
-        if (methodInfo != null)
-        {
-            var methodAttributes = methodInfo.GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
+            var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>
+                (true).ToList();
+            var methodAttributes = type.GetMethod(method.Name)
+                .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
             classAttributes.AddRange(methodAttributes);
+
+            return classAttributes.OrderBy(x => x.Priority).ToArray();
         }
-
-
-        return classAttributes.OrderBy(x => x.Priority).ToArray();
     }
-}
+
 
 }

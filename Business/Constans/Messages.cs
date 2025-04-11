@@ -13,8 +13,8 @@ namespace Business.Constans
         public static string ProductAdded = "Urun Eklendi";
         public static string ProductNameInvalid = "urun Ismi Gecersiz";
         public static string MaintenanceTime = "Sistem Bakimda";
-        public static string ProductListed= "Urunler Listelendi";
-        public static string ProductNameAlreadyExists= "Bu urunde baska bir urun var";
+        public static string ProductListed = "Urunler Listelendi";
+        public static string ProductNameAlreadyExists = "Bu urunde baska bir urun var";
         public static string ProductCountOfCategoryError = "Bir kategoride en fazla 15 urun olabilir";
         public static string CategoryLimitExceded = "Kategori limiti asildi";
         public static string UserRegistered = "Kayıt Oldu";
@@ -24,5 +24,17 @@ namespace Business.Constans
         public static string UserAlreadyExists = "Kullanıcı Mevcut";
         public static string AccessTokenCreated = "Token Oluşturuldu";
         public static string AuthorizationDenied = "Yetkiniz yok";
+
+        public static string CategoriesById = "Kategori Listelendi";
+        public static string CategoryListed = "Kategoriler Listelendi";
+
+        public static string CategoryAdded = "Kategori Eklendi";
+
+        public static string CategoryDeleted = "Kategori Silindi";
+
+        public static string CategoryUpdated = "Kategori Güncellendi";
+
+        public static string CategoryNameAlreadyExists = "Aynı isimde başka bir kategori bulunmaktadır.";
+
     }
 }

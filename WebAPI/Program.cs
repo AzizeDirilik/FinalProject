@@ -27,8 +27,9 @@ namespace WebAPI
 
             builder.Services.AddControllers();
             builder.Services.AddCors();
-
             builder.Services.AddMemoryCache();
+
+
             builder.Services.AddHttpContextAccessor();
 
             var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -50,7 +51,6 @@ namespace WebAPI
             builder.Services.AddDependencyResolvers([
                    new CoreModule()
                ]);
-
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -75,7 +75,6 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod());
 
             app.UseHttpsRedirection();

@@ -32,7 +32,11 @@ namespace WebAPI.Controllers
             var result = _categoryService.GetById(id);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(new
+                {
+                    result.Message,
+                    result.Data
+                });
             }
             return BadRequest(result);
         }
