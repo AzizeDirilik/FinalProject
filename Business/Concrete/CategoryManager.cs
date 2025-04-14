@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
+    [SecuredOperation("product.add,admin")]
     public class CategoryManager : ICategoryService
     {
         ICategoryDal _categoryDal;
@@ -25,7 +26,6 @@ namespace Business.Concrete
             _categoryDal = categoryDal;
         }
 
-        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(CategoryValidator))]
 
         public IResult Add(Category category)

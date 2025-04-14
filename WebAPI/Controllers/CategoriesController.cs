@@ -22,7 +22,11 @@ namespace WebAPI.Controllers
             var result = _categoryService.GetAll();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(new
+                {
+                    result.Message,
+                    result.Data
+                });
             }
             return BadRequest(result);
         }
@@ -47,7 +51,10 @@ namespace WebAPI.Controllers
             var result = _categoryService.Add(category);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(new
+                {
+                    message = result.Message,
+                });
             }
             return BadRequest(result);
         }
@@ -58,7 +65,10 @@ namespace WebAPI.Controllers
             var result = _categoryService.Update(category);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(new
+                {
+                    message = result.Message,
+                });
             }
             return BadRequest(result);
         }
@@ -69,7 +79,10 @@ namespace WebAPI.Controllers
             var result = _categoryService.Delete(category);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(new
+                {
+                    message = result.Message,
+                });
             }
             return BadRequest(result);
         }

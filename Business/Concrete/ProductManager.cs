@@ -54,7 +54,7 @@ namespace Business.Concrete
         public IResult Delete(Product product)
         {
             _productDal.Delete(product);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductDeleted);
         }
 
         [CacheAspect]
@@ -72,19 +72,19 @@ namespace Business.Concrete
         [PerformanceAspect(1)]
         public IDataResult<Product> GetById(int productId)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId), Messages.ProductListedById);
         }
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails(), Messages.ProductDetailsListed);
         }
 
         [CacheRemoveAspect("IProductService.Get")]
         public IResult Update(Product product)
         {
             _productDal.Update(product);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ProductUpdated);
         }
 
         private IResult CheckIfProductNameExists(string productName)
